@@ -29,7 +29,7 @@ set backspace=indent,eol,start
 "
 " Folding
 "
-set foldmethod-syntax        "fdm: fold by the indentation by default
+set foldmethod=syntax        "fdm: fold by the indentation by default
 set foldnestmax=10           "fdn: deepest fold is 10 levels
 set nofoldenable             "nofen: don't fold by default
 set foldlevel=1
