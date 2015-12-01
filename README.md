@@ -2,12 +2,12 @@
 
 My `~/.vim` and `~/.vimrc`.
 
-![screenshot](https://raw.githubusercontent.com/caarlos0/vimfiles/master/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/mattmahn/vimfiles/master/screenshot.png)
 
 # Installation
 
 ```sh
-git clone --recursive https://github.com/caarlos0/vimfiles.git ~/.vimfiles
+git clone --recursive https://github.com/mattmahn/vimfiles.git ~/.vimfiles
 ln -s ~/.vimfiles/vim.symlink ~/.vim
 ln -s ~/.vimfiles/vimrc.symlink ~/.vimrc
 vim +PluginInstall +qall
@@ -23,4 +23,4 @@ make
 
 # Used in
 
-- [caarlos0/dotfiles](http://github.com/caarlos0/dotfiles)
+- [mattmahn/dotfiles](http://github.com/mattmahn/dotfiles)
