@@ -1,6 +1,4 @@
 set nocompatible
-set background=dark
-colorscheme base16-ocean
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -8,11 +6,12 @@ call vundle#begin()
 Plugin 'tpope/vim-sensible'
 Plugin 'rstacruz/vim-opinion'
 Plugin 'wincent/command-t'
-Plugin 'vim-scripts/closetag.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Shougo/neocomplcache.vim'
-Plugin 'fatih/vim-go'
-Plugin 'honza/dockerfile.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'rust-lang/rust.vim'
+Plugin 'bling/vim-airline'
+Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
+Plugin 'editorconfig/editorconfig-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -21,25 +20,60 @@ filetype plugin indent on
 " my custom settings
 "
 "
-" highlight 80c
-set colorcolumn=80
+
+set autoindent
+set encoding=utf-8
+set mouse=a
+set backspace=indent,eol,start
+
+"
+" Folding
+"
+set foldmethod-syntax        "fdm: fold by the indentation by default
+set foldnestmax=10           "fdn: deepest fold is 10 levels
+set nofoldenable             "nofen: don't fold by default
+set foldlevel=1
+
+"
+" Search
+"
+set hlsearch
+
+"
+" Tabs
+"
+set tabstop=4                "ts: number of spaces that a tab renders as
+set shiftwidth=4             "sw: number of spaces to use for autoindent
+set softtabstop=4            "sts: number of spaces that tabs insert
+set smarttab                 "sta: helps with backspacing because of expandtab
+set expandtab                "et: uses spaces instead of tab characters
+
+"
+" HUD and status info
+"
+set number                   "nu: numbers lines
+set numberwidth=3            "nuw: width of number column
+set cmdheight=1              "ch: make a little more room for error messages
+set scrolloff=4              "so: places a cople lines between the current line and the screen edge
+set sidescrolloff=2          "siso: places a couple lines between the current column and the screen edge
+set laststatus=2             "ls: makes the status bar always visible
+set ttyfast                  "tf: improves redrawing for newer computers
+set lazyredraw               "lz: will not redraw the screen while running macros
+
+if has('linebreak')
+    try
+	set breakindent      "bri: visually indent wrapped lines
+	let &&showbreak='↳'
+    catch /E518:/
+	" unknown option: break indent
+    endtry
+endif
 
 " lead with ,
 let mapleader = ","
 
 " toggle nerdtree with ,e
 :nmap ,e :NERDTreeToggle<CR>
-
-" Autocompletion stuff
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 " ,s will strip whitespaces
 function! StripWhitespace ()
