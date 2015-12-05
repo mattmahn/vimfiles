@@ -12,6 +12,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'bling/vim-airline'
 Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'PotatoesMaster/i3-vim-syntax'
 
 call vundle#end()
 filetype plugin indent on
