@@ -64,7 +64,7 @@ set lazyredraw               "lz: will not redraw the screen while running macro
 if has('linebreak')
     try
 	set breakindent      "bri: visually indent wrapped lines
-	let &&showbreak='↳'
+	let showbreak='↳'
     catch /E518:/
 	" unknown option: break indent
     endtry
