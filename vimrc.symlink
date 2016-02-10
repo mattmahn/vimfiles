@@ -26,6 +26,7 @@ set autoindent
 set encoding=utf-8
 set mouse=a
 set backspace=indent,eol,start
+set spell spelllang=en_us
 
 "
 " Folding
