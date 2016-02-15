@@ -13,9 +13,21 @@ Plugin 'bling/vim-airline'
 Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 filetype plugin indent on
+
+"
+" settings for ultisnips
+" https://github.com/SirVer/ultisnips
+"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" if I want :UltiSnipsEdit to split my window
+let g:UltiSnipsEditSplit="vertical"
 
 "
 " my custom settings
