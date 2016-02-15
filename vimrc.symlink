@@ -75,12 +75,12 @@ set ttyfast                  "tf: improves redrawing for newer computers
 set lazyredraw               "lz: will not redraw the screen while running macros
 
 if has('linebreak')
-    try
-	set breakindent      "bri: visually indent wrapped lines
-	let showbreak='↳'
-    catch /E518:/
-	" unknown option: break indent
-    endtry
+  try
+    set breakindent      "bri: visually indent wrapped lines
+    let showbreak='↳'
+  catch /E518:/
+    " unknown option: break indent
+  endtry
 endif
 
 " lead with ,
