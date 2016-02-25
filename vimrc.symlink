@@ -15,7 +15,6 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'skorokithakis/pastery.vim'
 
 call vundle#end()
 filetype plugin indent on
