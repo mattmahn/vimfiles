@@ -24,7 +24,7 @@ filetype plugin indent on
 " https://github.com/SirVer/ultisnips
 "
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpForwardTrigger="<c-x>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " if I want :UltiSnipsEdit to split my window
 let g:UltiSnipsEditSplit="vertical"
