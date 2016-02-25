@@ -38,7 +38,9 @@ set autoindent
 set encoding=utf-8
 set mouse=a
 set backspace=indent,eol,start
-set spell spelllang=en_us
+set spelllang=en_us
+" toggle spellcheck with <F7> in Normal mode
+nnoremap <F7> :set spell!<CR>
 
 "
 " Folding
