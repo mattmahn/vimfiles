@@ -16,6 +16,7 @@ Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-surround'
+Plugin 'dhruvasagar/vim-table-mode'
 
 call vundle#end()
 filetype plugin indent on
