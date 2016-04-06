@@ -3,6 +3,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'VimVundle/VimVundle'
 Plugin 'tpope/vim-sensible'
 Plugin 'rstacruz/vim-opinion'
 Plugin 'wincent/command-t'
