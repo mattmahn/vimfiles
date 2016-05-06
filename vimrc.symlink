@@ -19,6 +19,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-surround'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'tomtom/tcomment_vim'
+Plugin 'Yggdroot/indentLine'
 
 call vundle#end()
 filetype plugin indent on
@@ -32,6 +33,9 @@ let g:UltiSnipsJumpForwardTrigger="<c-x>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " if I want :UltiSnipsEdit to split my window
 let g:UltiSnipsEditSplit="vertical"
+
+"
+let g:indentLine_char = '│'
 
 "
 " my custom settings
