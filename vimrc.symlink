@@ -20,6 +20,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'Yggdroot/indentLine'
+Plugin 'kchmck/vim-coffee-script'
 
 call vundle#end()
 filetype plugin indent on
@@ -34,10 +35,13 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " if I want :UltiSnipsEdit to split my window
 let g:UltiSnipsEditSplit="vertical"
 
-"
+" settings for indentLine
 let g:indentLine_char = '│'
 let g:indentLine_color_term = 239
 let g:indentLine_faster = 1
+
+" settings for vim-coffee-script
+let coffee_linter = '/usr/bin/coffeelint'
 
 "
 " my custom settings
