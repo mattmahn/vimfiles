@@ -25,6 +25,10 @@ Plugin 'kchmck/vim-coffee-script'
 call vundle#end()
 filetype plugin indent on
 
+" settings for vim-airline
+let g:airline_left_sep =  ""
+let g:airline_right_sep = ""
+
 "
 " settings for ultisnips
 " https://github.com/SirVer/ultisnips
