@@ -61,6 +61,7 @@ set spelllang=en_us
 nnoremap <F7> :set spell!<CR>
 " toggle auto indenting for code paste
 set pastetoggle=<F2>
+set concealcursor=""         "cocu: disable conceal for current line
 
 "
 " Folding
