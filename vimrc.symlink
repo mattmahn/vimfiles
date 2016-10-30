@@ -21,6 +21,14 @@ Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'jez/vim-superman'
+Plugin 'mxw/vim-jsx'
+Plugin 'wavded/vim-stylus'
+Plugin 'heavenshell/vim-jsdoc'
+Plugin '1995eaton/vim-better-javascript-completion'
+Plugin 'elzr/vim-json'
+Plugin 'othree/jsdoc-syntax.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -46,6 +54,20 @@ let g:indentLine_faster = 1
 
 " settings for vim-coffee-script
 let coffee_linter = '/usr/bin/coffeelint'
+
+" settings for vim-jsdoc
+let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_enable_es6 = 1
+
+" settings for vim-better-javascript-completion
+let g:vimjs#casesensitive = 0
+let g:vimjs#smartcomplete = 1
+
+" settings for vim-json
+let g:vim_json_syntax_conceal = 0
+
+"settings for javascript-libraries-syntax
+let g:used_javascript_libs = 'jquery,react'
 
 "
 " my custom settings
