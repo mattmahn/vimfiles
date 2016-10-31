@@ -29,6 +29,7 @@ Plugin '1995eaton/vim-better-javascript-completion'
 Plugin 'elzr/vim-json'
 Plugin 'othree/jsdoc-syntax.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'Chiel92/vim-autoformat'
 
 call vundle#end()
 filetype plugin indent on
@@ -66,8 +67,12 @@ let g:vimjs#smartcomplete = 1
 " settings for vim-json
 let g:vim_json_syntax_conceal = 0
 
-"settings for javascript-libraries-syntax
+" settings for javascript-libraries-syntax
 let g:used_javascript_libs = 'jquery,react'
+
+" settings for vim-autoformat
+noremap <F3> :Autoformat<CR>
+
 
 "
 " my custom settings
@@ -121,7 +126,7 @@ set lazyredraw               "lz: will not redraw the screen while running macro
 
 if has('linebreak')
   try
-    set breakindent      "bri: visually indent wrapped lines
+    set breakindent          "bri: visually indent wrapped lines
     let showbreak='↳'
   catch /E518:/
     " unknown option: break indent
