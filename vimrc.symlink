@@ -34,6 +34,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'kshenoy/vim-signature'
 Plugin 'jreybert/vimagit'
+Plugin 'tpope/vim-dispatch'
 
 call vundle#end()
 filetype plugin indent on
