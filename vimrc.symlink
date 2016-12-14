@@ -61,6 +61,7 @@ let g:UltiSnipsEditSplit="vertical"
 let g:indentLine_char = '│'
 let g:indentLine_color_term = 239
 let g:indentLine_faster = 1
+let g:indentLine_conceal = 0
 
 " settings for vim-coffee-script
 let coffee_linter = '/usr/bin/coffeelint'
@@ -97,6 +98,8 @@ colorscheme jellybeans
 
 set autoindent
 set encoding=utf-8
+set list
+set listchars=tab:▸\ ,eol:¬
 set mouse=a
 set backspace=indent,eol,start
 set spelllang=en_us
