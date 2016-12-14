@@ -35,6 +35,9 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'kshenoy/vim-signature'
 Plugin 'jreybert/vimagit'
 Plugin 'tpope/vim-dispatch'
+Plugin 'kristijanhusak/vim-multiple-cursors'
+Plugin 'ap/vim-css-color'
+Plugin 'nanotech/jellybeans.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -42,6 +45,7 @@ filetype plugin indent on
 " settings for vim-airline
 let g:airline_left_sep =  ""
 let g:airline_right_sep = ""
+let g:airline#extensions#tabline#nabled = 1
 
 "
 " settings for ultisnips
@@ -78,11 +82,18 @@ let g:used_javascript_libs = 'jquery,react'
 " settings for vim-autoformat
 noremap <F3> :Autoformat<CR>
 
+" settings for vim-multiple-cursors
+let g:multi_cursor_exit_from_insert_mode = 0
+let g:multi_cursor_exit_from_visual_mode = 0
+let g:multi_cursor_insert_maps = { ',': 1 }
+let g:multi_cursor_normal_maps = { 'd': 1 }
+
 
 "
 " my custom settings
 "
 "
+colorscheme jellybeans
 
 set autoindent
 set encoding=utf-8
@@ -94,6 +105,7 @@ nnoremap <F7> :set spell!<CR>
 " toggle auto indenting for code paste
 set pastetoggle=<F2>
 set concealcursor=""         "cocu: disable conceal for current line
+set vb t_vb=                 " disable beeps and flashes
 
 "
 " Folding
@@ -120,14 +132,16 @@ set expandtab                "et: uses spaces instead of tab characters
 "
 " HUD and status info
 "
+set laststatus=2             "ls: makes the status bar always visible
+set lazyredraw               "lz: will not redraw the screen while running macros
 set number                   "nu: numbers lines
 set numberwidth=2            "nuw: width of number column
+set relativenumber           "rnu: line numbers relative to current line
 set cmdheight=1              "ch: make a little more room for error messages
 set scrolloff=4              "so: places a cople lines between the current line and the screen edge
-set sidescrolloff=2          "siso: places a couple lines between the current column and the screen edge
-set laststatus=2             "ls: makes the status bar always visible
+set sidescrolloff=4          "siso: places a couple lines between the current column and the screen edge
 set ttyfast                  "tf: improves redrawing for newer computers
-set lazyredraw               "lz: will not redraw the screen while running macros
+set wrap
 
 if has('linebreak')
   try
