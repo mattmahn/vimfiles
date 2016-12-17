@@ -38,6 +38,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'kristijanhusak/vim-multiple-cursors'
 Plugin 'ap/vim-css-color'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'davidbeckingsale/writegood.vim'
 
 call vundle#end()
 filetype plugin indent on
