@@ -39,6 +39,7 @@ Plugin 'kristijanhusak/vim-multiple-cursors'
 Plugin 'ap/vim-css-color'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'davidbeckingsale/writegood.vim'
+Plugin 'vlaadbrain/gnuplot.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -99,8 +100,6 @@ colorscheme jellybeans
 
 set autoindent
 set encoding=utf-8
-set list
-set listchars=tab:▸\ ,eol:¬
 set mouse=a
 set backspace=indent,eol,start
 set spelllang=en_us
@@ -138,11 +137,15 @@ set expandtab                "et: uses spaces instead of tab characters
 "
 set laststatus=2             "ls: makes the status bar always visible
 set lazyredraw               "lz: will not redraw the screen while running macros
+set linebreak                "lbr: break lines at word boundary
+set list
+set listchars=eol:¬,tab:▸\ ,trail:~,extends:>,precedes:<
 set number                   "nu: numbers lines
 set numberwidth=2            "nuw: width of number column
 set relativenumber           "rnu: line numbers relative to current line
 set cmdheight=1              "ch: make a little more room for error messages
-set scrolloff=4              "so: places a cople lines between the current line and the screen edge
+set scrolloff=4              "so: places a couple lines between the current line and the screen edge
+set sidescroll=10
 set sidescrolloff=4          "siso: places a couple lines between the current column and the screen edge
 set ttyfast                  "tf: improves redrawing for newer computers
 set wrap
