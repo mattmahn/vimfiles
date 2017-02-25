@@ -26,6 +26,8 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'kristijanhusak/vim-multiple-cursors'
 Plugin 'ap/vim-css-color'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
 " syntax
 Plugin 'rust-lang/rust.vim'
 Plugin 'ekalinin/Dockerfile.vim'
@@ -111,6 +113,9 @@ let g:ale_linters = {
 \   'rust': ['rustc'],
 \   'text': ['proselint'],
 \}
+
+" settings for easytags
+let g:easytags_events = ['BufWritePost']
 
 
 "
