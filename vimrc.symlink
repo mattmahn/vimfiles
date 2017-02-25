@@ -4,16 +4,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VimVundle/VimVundle'
-Plugin 'tpope/vim-sensible'
-Plugin 'rstacruz/vim-opinion'
 Plugin 'wincent/command-t'
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'rust-lang/rust.vim'
 Plugin 'vim-airline/vim-airline'
-Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-surround'
@@ -22,15 +17,8 @@ Plugin 'tpope/vim-repeat'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'Yggdroot/indentLine'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'jez/vim-superman'
-Plugin 'mxw/vim-jsx'
-Plugin 'wavded/vim-stylus'
-Plugin 'heavenshell/vim-jsdoc'
 Plugin '1995eaton/vim-better-javascript-completion'
-Plugin 'elzr/vim-json'
-Plugin 'othree/jsdoc-syntax.vim'
-Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'kshenoy/vim-signature'
 Plugin 'jreybert/vimagit'
@@ -38,11 +26,25 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'kristijanhusak/vim-multiple-cursors'
 Plugin 'ap/vim-css-color'
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'davidbeckingsale/writegood.vim'
+" syntax
+Plugin 'rust-lang/rust.vim'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'mxw/vim-jsx'
+Plugin 'wavded/vim-stylus'
+Plugin 'heavenshell/vim-jsdoc'
+Plugin 'elzr/vim-json'
+Plugin 'othree/jsdoc-syntax.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'vlaadbrain/gnuplot.vim'
+" linting
+Plugin 'w0rp/ale'
+Plugin 'davidbeckingsale/writegood.vim'
 
 call vundle#end()
 filetype plugin indent on
+syntax on
 
 " settings for vim-airline
 let g:airline_left_sep =  ""
@@ -91,6 +93,25 @@ let g:multi_cursor_exit_from_visual_mode = 0
 let g:multi_cursor_insert_maps = { ',': 1 }
 let g:multi_cursor_normal_maps = { 'd': 1 }
 
+" settings for ALE
+let g:ale_linter_aliases = {
+\   'bash': 'sh',
+\   'csh': 'sh',
+\   'sass': 'css',
+\   'scss': 'css',
+\   'zsh': 'sh',
+\}
+let g:ale_linters = {
+\   'c': ['gcc'],
+\   'coffeescript': ['coffeelint'],
+\   'css': ['stylelint'],
+\   'javascript': ['eslint'],
+\   'markdown': ['proselint'],
+\   'ruby': ['rubocop'],
+\   'rust': ['rustc'],
+\   'text': ['proselint'],
+\}
+
 
 "
 " my custom settings
@@ -121,6 +142,7 @@ set foldlevel=1
 "
 " Search
 "
+set incsearch                "is: show currently matching searches
 set nohlsearch
 
 "
