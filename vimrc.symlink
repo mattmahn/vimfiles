@@ -43,6 +43,7 @@ Plugin 'vlaadbrain/gnuplot.vim'
 " linting
 Plugin 'w0rp/ale'
 Plugin 'davidbeckingsale/writegood.vim'
+Plugin 'dodie/vim-disapprove-deep-indentation'
 
 call vundle#end()
 filetype plugin indent on
@@ -116,6 +117,10 @@ let g:ale_linters = {
 
 " settings for easytags
 let g:easytags_events = ['BufWritePost']
+
+" settings for vim-disapprove-deep-indentation
+let g:LookOfDisapprovalTabTreshold = 4
+let g:LookOfDisapprovalSpaceTreshold = (&tabstop*4)
 
 
 "
