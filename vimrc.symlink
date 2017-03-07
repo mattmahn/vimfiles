@@ -4,7 +4,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VimVundle/VimVundle'
-Plugin 'wincent/command-t'
+Plugin 'wincent/command-t', {
+  \    'do': 'cd ruby/command-t && ruby extconf.rb && make'
+  \  }
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
@@ -43,7 +45,6 @@ Plugin 'vlaadbrain/gnuplot.vim'
 " linting
 Plugin 'w0rp/ale'
 Plugin 'davidbeckingsale/writegood.vim'
-Plugin 'dodie/vim-disapprove-deep-indentation'
 
 call vundle#end()
 filetype plugin indent on
@@ -117,10 +118,6 @@ let g:ale_linters = {
 
 " settings for easytags
 let g:easytags_events = ['BufWritePost']
-
-" settings for vim-disapprove-deep-indentation
-let g:LookOfDisapprovalTabTreshold = 4
-let g:LookOfDisapprovalSpaceTreshold = (&tabstop*4)
 
 
 "
