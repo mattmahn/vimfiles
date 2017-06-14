@@ -267,4 +267,11 @@ nmap ,e :NERDTreeToggle<CR>
 function! StripWhitespace ()
   exec ':%s/ \+$//gc'
 endfunction
-map ,s :call StripWhitespace ()<CR>
+map ,s :call StripWhitespace()<CR>
+
+" move by visual line unless count specified
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
+
+" automatically equalize splits when vim is resized
+autocmd VimResized * wincmd =
