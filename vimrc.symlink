@@ -1,6 +1,6 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+set runtimepath+=~/.vim/bundle/Vundle.vim
 let g:ale_emit_conflict_warnings = 0
 call vundle#begin()
 
@@ -72,11 +72,11 @@ let g:airline#extensions#tabline#enabled = 1
 " settings for ultisnips
 " https://github.com/SirVer/ultisnips
 "
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-x>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger='<c-x>'
+let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 " if I want :UltiSnipsEdit to split my window
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsEditSplit='vertical'
 
 " settings for indentLine
 let g:indentLine_char = '│'
@@ -85,7 +85,7 @@ let g:indentLine_faster = 1
 let g:indentLine_conceal = 0
 
 " settings for vim-coffee-script
-let coffee_linter = '/usr/bin/coffeelint'
+let g:coffee_linter = '/usr/bin/coffeelint'
 
 " settings for vim-jsdoc
 let g:jsdoc_allow_input_prompt = 1
@@ -133,13 +133,15 @@ let g:ale_linters = {
 let g:easytags_events = ['BufWritePost']
 
 " settings for vimwiki
-let wiki = {}
-let wiki.path = '~/wiki'
-let wiki.automatic_nested_syntaxes = 1
-let g:vimwiki_list = [wiki]
+let g:vimwiki_list = [
+      \{
+        \ 'path': '~/Dropbox/wiki',
+        \ 'automatic_nested_syntaxes': 1
+      \}
+      \]
 
 " settings for delimitMate
-let delimitMate_offByDefault = 0
+let g:delimitMate_offByDefault = 0
 
 " settings for denite / Unite
 nnoremap <C-p>b :Denite buffer<CR>
@@ -152,13 +154,13 @@ nnoremap <C-p>t :Denite filetype<CR>
 " use <C-j>, <C-k> to navigate results
 call denite#custom#map(
       \ 'insert',
-      \ '<C-J>',
+      \ '<C-j>',
       \ '<denite:move_to_next_line>',
       \ 'noremap'
       \)
 call denite#custom#map(
       \ 'insert',
-      \ '<C-K>',
+      \ '<C-k>',
       \ '<denite:move_to_previous_line>',
       \ 'noremap'
       \)
@@ -202,7 +204,7 @@ nnoremap <F7> :set spell!<CR>
 " toggle auto indenting for code paste
 set pastetoggle=<F2>
 set concealcursor=""         "cocu: disable conceal for current line
-set vb t_vb=                 " disable beeps and flashes
+set visualbell t_vb=                 " disable beeps and flashes
 
 "
 " Folding
@@ -249,17 +251,17 @@ set wrap
 if has('linebreak')
   try
     set breakindent          "bri: visually indent wrapped lines
-    let showbreak='↳'
+    let g:showbreak='↳'
   catch /E518:/
     " unknown option: break indent
   endtry
 endif
 
 " lead with ,
-let mapleader = ","
+let g:mapleader = ','
 
 " toggle nerdtree with ,e
-:nmap ,e :NERDTreeToggle<CR>
+nmap ,e :NERDTreeToggle<CR>
 
 " ,s will strip whitespaces
 function! StripWhitespace ()
