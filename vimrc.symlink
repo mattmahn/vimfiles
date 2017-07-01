@@ -275,3 +275,7 @@ nnoremap <expr> k v:count ? 'k' : 'gk'
 
 " automatically equalize splits when vim is resized
 autocmd VimResized * wincmd =
+
+" persistent undo
+set undofile                 " maintain undo history between sessions
+set undodir=~/.vim/undodir
