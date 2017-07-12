@@ -9,7 +9,6 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
-Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -55,6 +54,7 @@ Plug 'othree/jsdoc-syntax.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'vlaadbrain/gnuplot.vim'
 Plug 'cespare/vim-toml'
+Plug 'plasticboy/vim-markdown'
 " linting
 Plug 'w0rp/ale'
 Plug 'davidbeckingsale/writegood.vim'
@@ -196,6 +196,20 @@ let g:gist_show_privates = 1
 let g:gist_post_private = 0
 let g:gist_post_anonymous = 0
 let g:gist_get_multiplefile = 1
+
+" settings for plasticboy/vim-markdown
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_fenced_languages = [
+      \ 'bash=sh',
+      \ 'csharp=cs',
+      \ 'js=javascript',
+      \ 'py=python'
+      \]
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_json_frontmatter = 1
+let g:vim_markdown_new_list_item_indent = 0
 
 
 "
