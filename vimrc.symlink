@@ -33,7 +33,7 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
 Plug 'godlygeek/tabular'
 Plug 'vimwiki/vimwiki'
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/denite.nvim'
 Plug 'mattn/gist-vim'
   Plug 'mattn/webapi-vim'   " required by gist-vim
@@ -147,9 +147,6 @@ let g:vimwiki_list = [
         \ 'automatic_nested_syntaxes': 1
       \}
       \]
-
-" settings for delimitMate
-let g:delimitMate_offByDefault = 0
 
 " settings for denite / Unite
 nnoremap <C-p>b :Denite buffer<CR>
