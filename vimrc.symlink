@@ -146,6 +146,10 @@ let g:vimwiki_list = [
       \{
         \ 'path': '~/Dropbox/wiki',
         \ 'automatic_nested_syntaxes': 1
+      \},
+      \{
+      \   'path': "~/Dropbox/DnD/Dragon's Despair",
+      \   'automatic_nested_syntaxes': 1
       \}
       \]
 
