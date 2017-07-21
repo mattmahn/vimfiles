@@ -227,7 +227,7 @@ set spelllang=en_us
 nnoremap <F7> :set spell!<CR>
 " toggle auto indenting for code paste
 set pastetoggle=<F2>
-set concealcursor=""         "cocu: disable conceal for current line
+set concealcursor=v          "cocu: disable conceal for current line
 set visualbell t_vb=                 " disable beeps and flashes
 
 "
