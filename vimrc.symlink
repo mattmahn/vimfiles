@@ -56,6 +56,7 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'vlaadbrain/gnuplot.vim'
 Plug 'cespare/vim-toml'
 Plug 'plasticboy/vim-markdown'
+Plug 'slim-template/vim-slim'
 " linting
 Plug 'w0rp/ale'
 Plug 'davidbeckingsale/writegood.vim'
@@ -230,6 +231,7 @@ nnoremap <F7> :set spell!<CR>
 set pastetoggle=<F2>
 set concealcursor=v          "cocu: disable conceal for current line
 set visualbell t_vb=                 " disable beeps and flashes
+set concealcursor=v
 
 "
 " Folding
