@@ -10,12 +10,15 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
+" completion and snippets
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'editorconfig/editorconfig-vim'
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
@@ -26,7 +29,7 @@ Plug 'jez/vim-superman'
 Plug '1995eaton/vim-better-javascript-completion'
 Plug 'Chiel92/vim-autoformat'
 Plug 'kshenoy/vim-signature'
-Plug 'jreybert/vimagit'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
 Plug 'kristijanhusak/vim-multiple-cursors'
 Plug 'ap/vim-css-color'
@@ -78,16 +81,6 @@ let g:airline_powerline_fonts = 1
 " let g:airline_right_sep = ""
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
-
-"
-" settings for ultisnips
-" https://github.com/SirVer/ultisnips
-"
-let g:UltiSnipsExpandTrigger='<tab>'
-let g:UltiSnipsJumpForwardTrigger='<c-x>'
-let g:UltiSnipsJumpBackwardTrigger='<c-z>'
-" if I want :UltiSnipsEdit to split my window
-let g:UltiSnipsEditSplit='vertical'
 
 " settings for indentLine
 let g:indentLine_char = '│'
@@ -154,6 +147,37 @@ let g:vimwiki_list = [
       \   'automatic_nested_syntaxes': 1
       \}
       \]
+
+" settings for deoplete
+let g:deoplete#enable_at_startup = 1
+
+" settings for neosnippet
+let g:neosnippet#enable_completed_snippet = 1
+let g:neosnippet#enable_snipmate_compatibility = 1
+" Plugin key-mappings.
+" Note: It must be 'imap' and 'smap'.  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+" SuperTab like snippets' behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <expr><TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ neosnippet#expandable_or_jumpable() ?
+  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" resolve auto-pairs confilict for insert mode mapping to <CR>
+let g:AutoPairsMapCR = 0
+" Expand the completed snippet trigger by <CR>.
+imap <expr><CR>
+  \ (pumvisible() && neosnippet#expandable()) ?
+  \ "\<Plug>(neosnippet_expand)" : pumvisible() ?
+  \   deoplete#close_popup() : "\<CR>\<Plug>AutoPairsReturn"
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 
 " settings for denite / Unite
 nnoremap <C-p>b :Denite buffer<CR>
