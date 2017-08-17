@@ -10,10 +10,15 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
-" completion and snippets
+" completion and snippet engine
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
+" snippet lists
 Plug 'Shougo/neosnippet-snippets'
+Plug 'fszymanski/deoplete-emoji'
+Plug 'honza/vim-snippets'
+" detect other filetype inside others
+Plug 'Shougo/context_filetype.vim'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
@@ -73,6 +78,20 @@ call plug#end()
 
 set background=dark
 colorscheme one
+set termguicolors
+
+" settings for context_filetype
+if !exists('g:context_filetype#same_filetypes')
+    let g:context_filetype#same_filetypes = {}
+endif
+" In c buffers, completes from cpp and d buffers.
+let g:context_filetype#same_filetypes.c = 'cpp,d'
+" In cpp buffers, completes from c buffers.
+let g:context_filetype#same_filetypes.cpp = 'c'
+" In gitconfig buffers, completes from all buffers.
+let g:context_filetype#same_filetypes.gitconfig = '_'
+" In default, completes from all buffers.
+let g:context_filetype#same_filetypes._ = '_'
 
 " settings for vim-airline
 let g:airline_theme = 'one'
@@ -135,6 +154,8 @@ let g:ale_linters = {
 
 " settings for easytags
 let g:easytags_events = ['BufWritePost']
+set tags=./tags
+let g:easytags_dynamic_files = 1
 
 " settings for vimwiki
 let g:vimwiki_list = [
@@ -153,11 +174,17 @@ let g:deoplete#enable_at_startup = 1
 
 " settings for neosnippet
 let g:neosnippet#enable_completed_snippet = 1
+" disable
+let g:neosnippet#disable_runtime_snippets = {
+      \ '_': 1
+      \}
+let g:neosnippet#enable_smart_case = 1
 let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#snippets_directory = '~/.vim/bundle/vim-snippets/snippets'
 " Plugin key-mappings.
 " Note: It must be 'imap' and 'smap'.  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 " SuperTab like snippets' behavior.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
@@ -174,10 +201,18 @@ imap <expr><CR>
   \ (pumvisible() && neosnippet#expandable()) ?
   \ "\<Plug>(neosnippet_expand)" : pumvisible() ?
   \   deoplete#close_popup() : "\<CR>\<Plug>AutoPairsReturn"
+" undo completion with <C-g>
+inoremap <expr><C-g> deoplete#undo_completion()
+" disable buffer source
+let g:deoplete#ignore_sources =  {}
+let g:deoplete#ignore_sources._ = ['buffer']
 " For conceal markers.
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+" settings for deoplete-emoji
+call deoplete#custom#set('emoji', 'filetypes', ['rst', 'markdown', 'gitcommit'])
 
 " settings for denite / Unite
 nnoremap <C-p>b :Denite buffer<CR>
