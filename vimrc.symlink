@@ -67,11 +67,11 @@ Plug 'davidbeckingsale/writegood.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
-Plug 'zanglg/nova.vim'
+Plug 'trevordmiller/nova-vim'
 
 call plug#end()
 
-set background=light
+set background=dark
 colorscheme one
 
 " settings for vim-airline
