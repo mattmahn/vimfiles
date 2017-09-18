@@ -1,3 +1,4 @@
+set spell
 inoremap <Leader>t <Esc>yypVr=o
 inoremap <Leader>1 <Esc>yypVr-o
 inoremap <Leader>2 <Esc>yypVr~o
