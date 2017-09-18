@@ -27,6 +27,7 @@ Plug 'Shougo/echodoc.vim'
 
 Plug 'Shougo/context_filetype.vim'    " detect other filetype inside others
 
+Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -71,9 +72,9 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mxw/vim-jsx'
-Plug 'othree/yajs.vim'
+Plug 'pangloss/vim-javascript'
 Plug 'wavded/vim-stylus'
-Plug 'heavenshell/vim-jsdoc'
+Plug 'heavenshell/vim-jsdoc'  " generates JSDoc
 Plug 'elzr/vim-json'
 Plug 'othree/jsdoc-syntax.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -81,7 +82,10 @@ Plug 'vlaadbrain/gnuplot.vim'
 Plug 'cespare/vim-toml'
 Plug 'plasticboy/vim-markdown'
 Plug 'slim-template/vim-slim'
+Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'vim-scripts/bats.vim', { 'for': 'bats' }
 Plug 'Rykka/riv.vim', { 'for': 'rst' }
+Plug 'aklt/plantuml-syntax', { 'for': 'plantuml' }
 " linting
 Plug 'w0rp/ale'
 Plug 'davidbeckingsale/writegood.vim'
@@ -116,9 +120,10 @@ let g:deoplete#sources#rust#rust_source_path = '$RUST_SRC_PATH'
 
 " settings for vim-airline
 let g:airline_theme = 'one'
-let g:airline_powerline_fonts = 1
-" let g:airline_left_sep =  ""
-" let g:airline_right_sep = ""
+let g:airline_powerline_fonts = 0
+let g:airline_left_sep =  ""
+let g:airline_right_sep = ""
+let g:airline_skip_empty_sections = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 
@@ -161,16 +166,6 @@ let g:ale_linter_aliases = {
 \   'sass': 'css',
 \   'scss': 'css',
 \   'zsh': 'sh',
-\}
-let g:ale_linters = {
-\   'c': ['gcc'],
-\   'coffeescript': ['coffeelint'],
-\   'css': ['stylelint'],
-\   'javascript': ['eslint'],
-\   'markdown': ['proselint'],
-\   'ruby': ['rubocop'],
-\   'rust': ['rustc'],
-\   'text': ['proselint'],
 \}
 
 " settings for easytags
@@ -324,8 +319,10 @@ nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 " my custom settings
 "
 "
+set hidden
 set autoindent
 set encoding=utf-8
+set fileencoding=utf-8
 set mouse=a
 set backspace=indent,eol,start
 set spelllang=en_us
@@ -340,7 +337,7 @@ set concealcursor=v
 "
 " Folding
 "
-set foldmethod=syntax        "fdm: fold by the indentation by default
+set foldmethod=marker        "fdm: fold by the indentation by default
 set foldnestmax=10           "fdn: deepest fold is 10 levels
 set nofoldenable             "nofen: don't fold by default
 set foldlevel=1
@@ -349,7 +346,9 @@ set foldlevel=1
 " Search
 "
 set incsearch                "is: show currently matching searches
-set nohlsearch
+set smartcase                "scs: override 'ignorecase' if pattern has Capital
+" toggle search highlight
+nnoremap ./ :set hlsearch!<CR>
 
 "
 " Tabs
@@ -392,7 +391,7 @@ endif
 let g:mapleader = ','
 
 " toggle nerdtree with ,e
-nmap ,e :NERDTreeToggle<CR>
+nmap <leader>e :NERDTreeToggle<CR>
 
 " ,s will strip whitespaces
 function! StripWhitespace ()
@@ -410,3 +409,12 @@ autocmd VimResized * wincmd =
 " persistent undo
 set undofile                 " maintain undo history between sessions
 set undodir=~/.vim/undodir
+
+" prints the highlighting groups where the cursor is
+nmap <F9> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists('*synstack')
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
