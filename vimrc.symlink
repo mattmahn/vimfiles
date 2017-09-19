@@ -128,10 +128,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 
 " settings for indentLine
-let g:indentLine_char = '│'
+let g:indentLine_char = '┊'
 let g:indentLine_color_term = 239
 let g:indentLine_faster = 1
-let g:indentLine_conceal = 0
 
 " settings for vim-coffee-script
 let g:coffee_linter = '/usr/bin/coffeelint'
@@ -362,16 +361,17 @@ set expandtab                "et: uses spaces instead of tab characters
 "
 " HUD and status info
 "
+set cmdheight=1              "ch: make a little more room for error messages
 set cursorline               "cul: highlight cursor line
 set laststatus=2             "ls: makes the status bar always visible
 set lazyredraw               "lz: will not redraw the screen while running macros
 set linebreak                "lbr: break lines at word boundary
 set list
 set listchars=eol:¬,tab:▸\ ,trail:~,extends:>,precedes:<
+set noshowmode
 set number                   "nu: numbers lines
 set numberwidth=2            "nuw: width of number column
 set relativenumber           "rnu: line numbers relative to current line
-set cmdheight=2              "ch: make a little more room for error messages
 set scrolloff=4              "so: places a couple lines between the current line and the screen edge
 set sidescroll=10
 set sidescrolloff=4          "siso: places a couple lines between the current column and the screen edge
