@@ -63,6 +63,7 @@ Plug 'kana/vim-textobj-user'
   Plug 'thinca/vim-textobj-between'
 Plug 'reedes/vim-pencil'
 Plug 'reedes/vim-wordy'
+Plug 'machakann/vim-highlightedyank'
 " syntax
 Plug 'python-mode/python-mode', { 'for': 'python' }
 Plug 'othree/html5.vim'
@@ -313,6 +314,11 @@ let g:LanguageClient_autoStart = 1
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
+" settings for machakann/vim-highlightedyank
+if !has('nvim')
+  map y <Plug>(highlightedyank)
+endif
+
 
 "
 " my custom settings
@@ -330,8 +336,8 @@ nnoremap <F7> :set spell!<CR>
 " toggle auto indenting for code paste
 set pastetoggle=<F2>
 set concealcursor=v          "cocu: disable conceal for current line
-set visualbell t_vb=                 " disable beeps and flashes
-set concealcursor=v
+set visualbell t_vb=         " disable beeps and flashes
+set inccommand=split
 
 "
 " Folding
