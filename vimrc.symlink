@@ -363,7 +363,7 @@ set tabstop=4                "ts: number of spaces that a tab renders as
 set shiftwidth=4             "sw: number of spaces to use for autoindent
 set softtabstop=4            "sts: number of spaces that tabs insert
 set smarttab                 "sta: helps with backspacing because of expandtab
-set expandtab                "et: uses spaces instead of tab characters
+set expandtab                "et: uses spaces instead of tab characmers
 
 "
 " HUD and status info
@@ -425,3 +425,26 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+if has('nvim')
+  " Terminal mode:
+  tnoremap <M-h> <c-\><C-n><C-w>h
+  tnoremap <M-j> <c-\><C-n><C-w>j
+  tnoremap <M-k> <c-\><C-n><C-w>k
+  tnoremap <M-l> <c-\><C-n><C-w>l
+  " Insert mode:
+  inoremap <M-h> <Esc><C-w>h
+  inoremap <M-j> <Esc><C-w>j
+  inoremap <M-k> <Esc><C-w>k
+  inoremap <M-l> <Esc><C-w>l
+  " Visual mode:
+  vnoremap <M-h> <Esc><C-w>h
+  vnoremap <M-j> <Esc><C-w>j
+  vnoremap <M-k> <Esc><C-w>k
+  vnoremap <M-l> <Esc><C-w>l
+  " Normal mode:
+  nnoremap <M-h> <C-w>h
+  nnoremap <M-j> <C-w>j
+  nnoremap <M-k> <C-w>k
+  nnoremap <M-l> <C-w>l
+endif
