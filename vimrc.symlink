@@ -428,10 +428,10 @@ endfunc
 
 if has('nvim')
   " Terminal mode:
-  tnoremap <M-h> <c-\><C-n><C-w>h
-  tnoremap <M-j> <c-\><C-n><C-w>j
-  tnoremap <M-k> <c-\><C-n><C-w>k
-  tnoremap <M-l> <c-\><C-n><C-w>l
+  tnoremap <M-h> <C-\><C-n><C-w>h
+  tnoremap <M-j> <C-\><C-n><C-w>j
+  tnoremap <M-k> <C-\><C-n><C-w>k
+  tnoremap <M-l> <C-\><C-n><C-w>l
   " Insert mode:
   inoremap <M-h> <Esc><C-w>h
   inoremap <M-j> <Esc><C-w>j
