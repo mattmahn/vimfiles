@@ -340,6 +340,12 @@ set pastetoggle=<F2>
 set concealcursor=v          "cocu: disable conceal for current line
 set visualbell t_vb=         " disable beeps and flashes
 set inccommand=split
+set splitbelow               " horizontal split below current
+set splitright               " vertical split right of current
+set formatoptions+=j
+
+vnoremap < <gv
+vnoremap > >gv
 
 "
 " Folding
