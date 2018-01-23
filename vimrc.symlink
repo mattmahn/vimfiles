@@ -47,7 +47,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'kristijanhusak/vim-multiple-cursors'
 Plug 'ap/vim-css-color'
 Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'godlygeek/tabular'
 Plug 'vimwiki/vimwiki'
 Plug 'jiangmiao/auto-pairs'
@@ -170,10 +170,8 @@ let g:ale_linter_aliases = {
 \   'zsh': 'sh',
 \}
 
-" settings for easytags
-let g:easytags_events = ['BufWritePost']
-set tags=./tags
-let g:easytags_dynamic_files = 1
+" settings for gutentags
+set tags=./tags,tags
 
 " settings for vimwiki
 let g:vimwiki_list = [
@@ -338,7 +336,7 @@ set spelllang=en_us
 nnoremap <F7> :set spell!<CR>
 " toggle auto indenting for code paste
 set pastetoggle=<F2>
-set concealcursor=v          "cocu: disable conceal for current line
+set concealcursor=iv         " cocu: disable conceal for current line
 set visualbell t_vb=         " disable beeps and flashes
 set inccommand=split
 set splitbelow               " horizontal split below current
