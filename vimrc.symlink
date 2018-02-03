@@ -88,6 +88,7 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'vim-scripts/bats.vim', { 'for': 'bats' }
 Plug 'Rykka/riv.vim', { 'for': 'rst' }
 Plug 'aklt/plantuml-syntax', { 'for': 'plantuml' }
+Plug 'lervag/vimtex', { 'for': [ 'tex', 'latex' ] }
 " linting
 Plug 'w0rp/ale'
 Plug 'davidbeckingsale/writegood.vim'
@@ -129,6 +130,13 @@ let g:airline_right_sep = ""
 let g:airline_skip_empty_sections = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#vimtex#enabled = 1
+
+" settings for editorconfig
+let g:EditorConfig_exclude_patterns = [
+      \ 'fugitive://.*',
+      \ 'scp://.*'
+      \]
 
 " settings for indentLine
 let g:indentLine_char = '┊'
@@ -295,7 +303,7 @@ let g:vim_markdown_new_list_item_indent = 0
 let g:pencil#map#suspend_af = 'K'
 augroup pencil
   autocmd!
-  autocmd FileType markdown,mkd call pencil#init()
+  " autocmd FileType markdown,mkd call pencil#init()
   autocmd FileType text call pencil#init({ 'wrap': 'hard' })
   autocmd FileType git,*commit* call pencil#init({
         \ 'wrap': 'hard'
@@ -319,6 +327,12 @@ nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 if !has('nvim')
   map y <Plug>(highlightedyank)
 endif
+
+" settings for vimtex
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+autocmd FileType latex,tex let g:deoplete#omni#input_patterns.tex = g:vimtex#deoplete
 
 
 "
