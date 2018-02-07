@@ -98,12 +98,15 @@ Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
 Plug 'trevordmiller/nova-vim'
 Plug 'hzchirs/vim-material'
+Plug 'colepeters/spacemacs-theme.vim'
 
 call plug#end()
 
 set background=dark
-colorscheme vim-material
-set termguicolors
+colorscheme spacemacs-theme
+if has('termguicolors')
+  set termguicolors
+endif
 
 " settings for context_filetype
 if !exists('g:context_filetype#same_filetypes')
