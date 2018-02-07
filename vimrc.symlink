@@ -99,6 +99,7 @@ Plug 'rakr/vim-one'
 Plug 'trevordmiller/nova-vim'
 Plug 'hzchirs/vim-material'
 Plug 'colepeters/spacemacs-theme.vim'
+Plug 'baskerville/bubblegum'
 
 call plug#end()
 
@@ -126,13 +127,15 @@ let g:deoplete#sources#rust#racer_binary = '/bin/racer'
 let g:deoplete#sources#rust#rust_source_path = '$RUST_SRC_PATH'
 
 " settings for vim-airline
-let g:airline_theme = 'material'
+let g:airline_theme = 'violet'
 let g:airline_powerline_fonts = 0
-let g:airline_left_sep =  ""
-let g:airline_right_sep = ""
+let g:airline_left_sep =  ''
+let g:airline_right_sep = ''
 let g:airline_skip_empty_sections = 1
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#fugitiveline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#vimtex#enabled = 1
 
 " settings for editorconfig
