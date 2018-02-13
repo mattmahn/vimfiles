@@ -104,7 +104,7 @@ Plug 'baskerville/bubblegum'
 call plug#end()
 
 set background=dark
-colorscheme spacemacs-theme
+colorscheme jellybeans
 if has('termguicolors')
   set termguicolors
 endif
@@ -127,7 +127,7 @@ let g:deoplete#sources#rust#racer_binary = '/bin/racer'
 let g:deoplete#sources#rust#rust_source_path = '$RUST_SRC_PATH'
 
 " settings for vim-airline
-let g:airline_theme = 'violet'
+let g:airline_theme = 'jellybeans'
 let g:airline_powerline_fonts = 0
 let g:airline_left_sep =  ''
 let g:airline_right_sep = ''
