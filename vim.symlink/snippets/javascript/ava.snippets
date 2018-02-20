@@ -1,0 +1,165 @@
+# vim: noexpandtab
+
+snippet ava
+	import test from 'ava';
+	import ${1} from '${2}';
+
+	test('${3:title}', t => {
+		${4}
+	})${0}
+
+snippet     test
+abbr        t
+options     head
+	test('${1:title}', t => {
+		${2:TARGET}
+	})${0}
+
+snippet     test-async
+abbr        test.async
+abbr        async
+options     head
+	test('${1:title}', async t => {
+		${2:TARGET}
+	})${0}
+
+snippet     test-serial
+abbr        serial
+options     head
+	test.serial('${1:title}', t => {
+		${2:TARGET}
+	})${0}
+
+snippet     test-cb
+abbr        cb
+options     head
+	test.cb('${1:title}', t => {
+		${2}
+		t.end()
+	})${0}
+
+snippet     test-skip
+abbr        test.skip
+abbr        skip
+options     head
+	test.skip('${1:title}', t => {
+		${2:TARGET}
+	})${0}
+
+snippet     test-only
+abbr        only
+options     head
+	test.only('${1:title}' t=> {
+		${2:TARGET}
+	})${0}
+
+snippet     test-todo
+abbr        todo
+options     head
+	test.todo('${1:title}')${0}
+
+snippet     before
+options     head
+	test.before(t => {
+		${1:TARGET}
+	})${0}
+
+snippet     beforeEach
+abbr        be
+options     head
+	test.beforeEach(t => {
+		${1:TARGET}
+	})${0}
+
+snippet     after
+options     head
+	test.after(t => {
+		${1:TARGET}
+	})${0}
+
+snippet     afterEach
+abbr        ae
+options     head
+	test.afterEach(t => {
+		${1:TARGET}
+	})${0}
+
+##############
+# Assertions #
+##############
+
+snippet     t.pass
+abbr        pass
+options     head
+	t.pass('${1:TARGET}')${0}
+
+snippet     t.fail
+abbr        fail
+options     head
+	t.fail('${1:TARGET}')${0}
+
+snippet     t.true
+options     head
+	t.true(${1:value}${2:#:, '})${0}
+
+snippet     t.truthy
+options     head
+	t.truthy(${1:value}${2:#:, '})${0}
+
+snippet     t.false
+options     head
+	t.false(${1:value}${2:#:, '})${0}
+
+snippet     t.falsy
+options     head
+	t.falsy(${1:value}${2:#:, '})${0}
+
+snippet     t.is
+abbr        is
+options     head
+	t.is(${1:actual}, ${2:expected}${3:#:, '${4:message\}'})${0}
+
+snippet     t.not
+abbr        not
+options     head
+	t.not(${1:actual}, ${2:expected}${3:#:, '${4:message\}'})${0}
+
+snippet     t.deepEqual
+abbr        deepEqual
+options     head
+	t.deepEqual(${1:actual}, ${2:expected}${3:#:, '${4:message\}'})${0}
+
+snippet     t.notDeepEqual
+abbr        notDeepEqual
+options     head
+	t.notDeepEqual(${1:actual}, ${2:expected}${3:#:, '${4:message\}'})${0}
+
+snippet     t.throws
+abbr        throws
+options     head
+	t.throws(${1:TARGET}${2:#:, ${3:expected, '${4:#:message\}'\}})${0}
+
+snippet     t.notThrows
+abbr        notThrows
+options     head
+	t.throws(${1:TARGET}${2:#:, '${3:message\}'})${0}
+
+snippet     t.regex
+abbr        regex
+options     head
+	t.regex(${1:TARGET}, ${2:regex}${3:#:, '${4:message\}'})${0}
+
+snippet     t.notRegex
+abbr        notRegex
+options     head
+	t.notRegex(${1:TARGET}, ${2:regex}${3:#:, '${4:message\}'})${0}
+
+snippet     t.ifError
+abbr        ifError
+options     head
+	t.ifError(${1:error}${2:#:, '${3:message\}'})${0}
+
+snippet     t.snapshot
+abbr        snapshot
+options     head
+	t.snapshot(${1:expected}${2:#:, '${3:message\}'})${0}

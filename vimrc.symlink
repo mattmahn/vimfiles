@@ -89,6 +89,7 @@ Plug 'vim-scripts/bats.vim', { 'for': 'bats' }
 Plug 'Rykka/riv.vim', { 'for': 'rst' }
 Plug 'aklt/plantuml-syntax', { 'for': 'plantuml' }
 Plug 'lervag/vimtex', { 'for': [ 'tex', 'latex' ] }
+Plug 'GutenYe/json5.vim'
 " linting
 Plug 'w0rp/ale'
 Plug 'davidbeckingsale/writegood.vim'
@@ -209,12 +210,12 @@ let g:deoplete#enable_at_startup = 1
 " settings for neosnippet
 let g:neosnippet#enable_completed_snippet = 1
 " disable
-let g:neosnippet#disable_runtime_snippets = {
-      \ '_': 1
-      \}
 let g:neosnippet#enable_smart_case = 1
 let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory = '~/.vim/bundle/vim-snippets/snippets'
+let g:neosnippet#snippets_directory = [
+      \ '~/.vim/snippets',
+      \ '~/.vim/bundle/vim-snippets/snippets'
+      \]
 " Plugin key-mappings.
 " Note: It must be 'imap' and 'smap'.  It uses <Plug> mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -381,6 +382,7 @@ set foldlevel=1
 " Search
 "
 set incsearch                "is: show currently matching searches
+set ignorecase
 set smartcase                "scs: override 'ignorecase' if pattern has Capital
 " toggle search highlight
 nnoremap ./ :set hlsearch!<CR>
