@@ -310,7 +310,7 @@ let g:vim_markdown_json_frontmatter = 1
 let g:vim_markdown_new_list_item_indent = 0
 
 " settings for vim-pencil
-let g:pencil#map#suspend_af = 'K'
+let g:pencil#map#suspend_af = '\'
 augroup pencil
   autocmd!
   " autocmd FileType markdown,mkd call pencil#init()
