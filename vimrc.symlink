@@ -257,7 +257,7 @@ if has('conceal')
 endif
 
 " settings for deoplete-emoji
-call deoplete#custom#set('emoji', 'filetypes', ['rst', 'markdown', 'gitcommit'])
+call deoplete#custom#source('emoji', 'filetypes', ['rst', 'markdown', 'gitcommit'])
 
 " settings for denite / Unite
 nnoremap <C-p>b :Denite buffer<CR>
