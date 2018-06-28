@@ -100,6 +100,7 @@ Plug 'Rykka/riv.vim', { 'for': 'rst' }
 Plug 'aklt/plantuml-syntax', { 'for': 'plantuml' }
 Plug 'lervag/vimtex', { 'for': [ 'tex', 'latex' ] }
 Plug 'GutenYe/json5.vim'
+Plug 'hashivim/vim-terraform'
 " linting
 Plug 'w0rp/ale'
 Plug 'davidbeckingsale/writegood.vim'
@@ -353,6 +354,11 @@ if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
 autocmd FileType latex,tex let g:deoplete#omni#input_patterns.tex = g:vimtex#deoplete
+
+" settings for vim-terraform
+let g:terraform_align = 1
+let g:terraform_fmt_on_save = 1
+autocmd FileType terraform setlocal commentstring=#%s
 
 
 "
