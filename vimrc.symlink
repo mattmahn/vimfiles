@@ -356,7 +356,7 @@ endif
 autocmd FileType latex,tex let g:deoplete#omni#input_patterns.tex = g:vimtex#deoplete
 
 " settings for vim-terraform
-let g:terraform_align = 1
+let g:terraform_align = 0  " doesn't play nice with maps and other equal signs
 let g:terraform_fmt_on_save = 1
 autocmd FileType terraform setlocal commentstring=#%s
 
