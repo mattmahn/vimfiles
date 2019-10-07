@@ -325,7 +325,6 @@ let g:pencil#map#suspend_af = '\'
 augroup pencil
   autocmd!
   " autocmd FileType markdown,mkd call pencil#init()
-  autocmd FileType text call pencil#init({ 'wrap': 'hard' })
   autocmd FileType git,*commit* call pencil#init({
         \ 'wrap': 'hard'
         \ })
